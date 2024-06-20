@@ -1,4 +1,5 @@
 import cv2
+import court_detection
 
 background_subtractor = cv2.createBackgroundSubtractorMOG2()
 
@@ -44,16 +45,18 @@ def main(video_path):
 
         if not ret:
             break
-        
+
         # Process the frame to detect players
-        player_contours = process_frame(frame)
+        # player_contours = process_frame(frame)
         
         # Draw players on the frame
-        frame_with_players = draw_players(player_contours, frame)
+        #frame_with_players = draw_players(player_contours, frame)
         
         # Display the frame with player detection
-        cv2.imshow('Player Detection', frame_with_players)
-        
+        #cv2.imshow('Player Detection', frame_with_players)
+
+        cv2.imshow('Player Detection', frame)
+
         key = cv2.waitKey(1)
         if key == ord('q'):
             break
