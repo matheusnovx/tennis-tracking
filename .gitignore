@@ -122,3 +122,6 @@ dmypy.json
 .vscode/
 *.swp
 *~
+
+# Ignore specific file
+tennis_match2.mp4
