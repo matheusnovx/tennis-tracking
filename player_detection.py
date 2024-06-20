@@ -1,5 +1,6 @@
 import cv2
 import court_detection
+import extract_train
 
 background_subtractor = cv2.createBackgroundSubtractorMOG2()
 
