@@ -2,7 +2,7 @@ import pickle
 import cv2
 from hog_quantification import quantify_image_HoG
 
-def is_tennis_court(image, model_path='model.pickle', le_path='label_encoder.pickle', cell_size=12):
+def is_tennis_court(image, model_path='classic/model.pickle', le_path='classic/label_encoder.pickle', cell_size=12):
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
     

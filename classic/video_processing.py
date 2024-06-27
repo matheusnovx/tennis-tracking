@@ -16,9 +16,9 @@ def process_video(videoPath):
             player_contours = process_frame(frame)
             frame_with_players = draw_players(player_contours, frame)
             cv2.imshow('Player Detection', frame_with_players)
-        else:
-            print(f"Frame {i+1}: No tennis court detected.")
-            cv2.imshow('Player Detection', frame)
+        # else:
+        #     print(f"Frame {i+1}: No tennis court detected.")
+        #     cv2.imshow('Player Detection', frame)
 
         key = cv2.waitKey(1)
         if key == ord('q'):
