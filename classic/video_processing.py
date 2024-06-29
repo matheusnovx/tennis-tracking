@@ -8,11 +8,13 @@ def process_video(videoPath):
 
     for i in range(frame_count):
         ret, frame = cap.read()
+        frame = cv2.resize(frame, (900, 500))
+
         if not ret:
             break
 
         if is_tennis_court(frame):
-            print(f"Frame {i+1}: Tennis court detected.")
+            # print(f"Frame {i+1}: Tennis court detected.")
             player_contours = process_frame(frame)
             frame_with_players = draw_players(player_contours, frame)
             cv2.imshow('Player Detection', frame_with_players)

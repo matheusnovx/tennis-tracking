@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
-def train_and_save_model(data, labels, model_path='classic/model.pickle', le_path='classic/label_encoder.pickle'):
+def train_and_save_model(data, labels, model_path='classic/pickle/model.pickle', le_path='classic/pickle/label_encoder.pickle'):
     # Encode the labels
     le = LabelEncoder()
     labels = le.fit_transform(labels)
