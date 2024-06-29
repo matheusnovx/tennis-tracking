@@ -1,0 +1,5 @@
+deep/models/yolo5_last.pt filter=lfs diff=lfs merge=lfs -text
+deep/training/yolov5l6u.pt filter=lfs diff=lfs merge=lfs -text
+runs/detect/predict3/tennis_match2.avi filter=lfs diff=lfs merge=lfs -text
+yolov8x.pt filter=lfs diff=lfs merge=lfs -text
+deep/models/keypoints_model.pth filter=lfs diff=lfs merge=lfs -text

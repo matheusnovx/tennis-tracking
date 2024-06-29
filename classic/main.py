@@ -5,7 +5,7 @@ from model_training import train_and_save_model
 from video_processing import process_video
 
 # Path to the dataset and cell size for HOG
-datapath = "classic/frames"
+datapath = "frames"
 cell_size = 12
 
 # Load the dataset
