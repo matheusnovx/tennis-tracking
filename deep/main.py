@@ -32,10 +32,10 @@ def main():
 
     output_video_frames = player_tracker.draw_bboxes(video_frames, player_detections)
     output_video_frames = ball_tracker.draw_bboxes(output_video_frames, ball_detections)
-    output_video_frames = court_line_detector.draw_keypoints_on_video(output_video_frames, court_keypoints)
-    output_video_frames = mini_court.draw_mini_court(output_video_frames)
+    # output_video_frames = court_line_detector.draw_keypoints_on_video(output_video_frames, court_keypoints)
+    # output_video_frames = mini_court.draw_mini_court(output_video_frames)
 
-    save_video(output_video_frames, "output_videos/output.avi")
+    save_video(output_video_frames, "output_videos/output_deep.avi")
 
 if __name__ == "__main__":
     main()

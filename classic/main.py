@@ -23,6 +23,6 @@ train_and_save_model(data, labels)
 video_path = 'input_videos/tennis_match2.mp4'
 
 # Process the video
-
+# process_video(video_path)
 video_frames = read_video(video_path)
 save_video(video_frames, "output_videos/output_classic.avi")
