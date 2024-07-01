@@ -20,7 +20,7 @@ print(f"[INFO] class distribution: {class_distribution}")
 train_and_save_model(data, labels)
 
 # Path to the input video
-video_path = 'input_videos/tennis_match2_cut.mp4'
+video_path = 'input_videos/tennis_match2.mp4'
 
 # Process the video
 
