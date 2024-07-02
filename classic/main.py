@@ -19,8 +19,10 @@ def main():
     # Path to the input video
     video_path = 'input_videos/tennis_match2_cut.mp4'
 
-    # Process the video
+    # If you want to process the video frame in real-time, use the following line
     # process_video(video_path)
+    
+    # If you want to process the video frame by frame and save the output video, use the following lines
     video_frames = read_video(video_path)
     save_video(video_frames, "output_videos/output_classic.avi")
 

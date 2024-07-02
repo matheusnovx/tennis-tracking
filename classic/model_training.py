@@ -1,5 +1,6 @@
 import pickle
 import numpy as np
+import os
 from sklearn.svm import LinearSVC
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -31,5 +32,6 @@ def train_and_save_model(data, labels, model_path='classic/pickle/model.pickle',
     with open(model_path, 'wb') as f:
         pickle.dump(model, f)
     
-    with open(le_path, 'wb') as f:
-        pickle.dump(le, f)
+    if os.path.isfile("classic/pickle/model.pickle"):
+        with open(le_path, 'wb') as f:
+            pickle.dump(le, f)
