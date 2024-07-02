@@ -10,22 +10,14 @@ def main():
     player_tracker = PlayerTracker(model_path="deep/models/yolov8x.pt")
     ball_tracker = BallTracker(model_path="deep/models/yolo5_last.pt")
 
-
-    player_detections = player_tracker.detect_frames(video_frames,
-                                                     read_from_stub=True,
-                                                     stub_path="deep/tracker_stubs/player_detections.pkl")
-    
-
-    ball_detections = ball_tracker.detect_frames(video_frames,
-                                                     read_from_stub=True,
-                                                     stub_path="deep/tracker_stubs/ball_detections.pkl")
+    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/tracker_stubs/player_detections.pkl")
+    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/tracker_stubs/ball_detections.pkl")
 
     court_model_path = "deep/models/keypoints_model.pth"
     court_line_detector = CourtLineDetector(model_path=court_model_path)
     court_keypoints = court_line_detector.predict(video_frames[0])
 
     player_detections = player_tracker.choose_and_filter_players(court_keypoints, player_detections)
-
 
     output_video_frames = player_tracker.draw_bboxes(video_frames, player_detections)
     output_video_frames = ball_tracker.draw_bboxes(output_video_frames, ball_detections)
