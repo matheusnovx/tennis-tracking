@@ -5,16 +5,21 @@ from player_detection import process_frame, draw_players
 def read_video(video_path):
     cap = cv2.VideoCapture(video_path)
     frames = []
+    i = 1
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             break
 
+        if i % 10 == 0:
+            print(f"Processing frame {i} of {int(cap.get(cv2.CAP_PROP_FRAME_COUNT))}...")
+
         if is_tennis_court(frame):
-            # print(f"Frame {i+1}: Tennis court detected.")
             player_contours = process_frame(frame)
             frame_with_players = draw_players(player_contours, frame)
             frames.append(frame_with_players)
+            i += 1
+
     cap.release()
     return frames
 

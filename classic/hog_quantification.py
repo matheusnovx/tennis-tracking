@@ -1,4 +1,3 @@
-import numpy as np
 from skimage import feature
 
 def quantify_image_HoG(image, cell_size=12):
