@@ -5,7 +5,7 @@ Este repositório contém uma solução para rastreamento de partidas de tênis 
 ## Estrutura do Projeto
 
 - `input_videos/`: Contém vídeos de partidas de tênis a serem processados.
-- `frames/`: Armazena os frames extraídos dos vídeos.
+- `frames/`: Armazena os frames extraídos dos vídeos usados para o HOG.
 - `output_videos/`: Guarda os resultados dos vídeos processados com anotações de rastreamento.
 
 ## Visão Computacional Clássica
