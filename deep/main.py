@@ -2,9 +2,6 @@ from utils import (read_video,
                    save_video)
 from trackers import PlayerTracker, BallTracker
 from court_line_detector import CourtLineDetector
-from mini_court import MiniCourt
-import cv2
-import os
 
 def main():
     input_video_path = "input_videos/tennis_match2_cut.mp4"
@@ -15,12 +12,12 @@ def main():
 
 
     player_detections = player_tracker.detect_frames(video_frames,
-                                                     read_from_stub=False,
+                                                     read_from_stub=True,
                                                      stub_path="deep/tracker_stubs/player_detections.pkl")
     
 
     ball_detections = ball_tracker.detect_frames(video_frames,
-                                                     read_from_stub=False,
+                                                     read_from_stub=True,
                                                      stub_path="deep/tracker_stubs/ball_detections.pkl")
 
     court_model_path = "deep/models/keypoints_model.pth"
