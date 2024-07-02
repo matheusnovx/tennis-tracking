@@ -29,7 +29,7 @@ def train_and_save_model(data, labels, model_path='classic/pickle/model.pickle',
     print(classification_report(testY, predictions, target_names=le.classes_))
 
     # Save the model and label encoder
-    if os.path.isfile("classic/pickle/model.pickle"):
+    if os.path.isfile("classic/pickle/model.pickle") != True:
         with open(model_path, 'wb') as f:
             pickle.dump(model, f)
     
