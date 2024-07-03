@@ -14,8 +14,8 @@ def initialize_trackers() -> Tuple[PlayerTracker, BallTracker, CourtLineDetector
 
 # Detect players and the ball in the video
 def detect_objects(video_frames: List, player_tracker: PlayerTracker, ball_tracker: BallTracker) -> Tuple[List, List]:
-    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/tracker_stubs/player_detections.pkl")
-    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/tracker_stubs/ball_detections.pkl")
+    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/pickle/player_detections.pkl")
+    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/pickle/ball_detections.pkl")
     return player_detections, ball_detections
 
 # Process the video
