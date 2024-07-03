@@ -3,7 +3,7 @@ from typing import List, Tuple
 from utils import (read_video, 
                    save_video)
 from trackers import PlayerTracker, BallTracker
-from court_line_detector import CourtLineDetector
+from court_line_detection import CourtLineDetector
 
 # Initialize player, ball trackers, and court line detector
 def initialize_trackers() -> Tuple[PlayerTracker, BallTracker, CourtLineDetector]:
