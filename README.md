@@ -24,7 +24,8 @@ Os scripts no diretório `deep` utilizam modelos de deep learning, especificamen
 
 ### Como Usar
 1. Navegue até o diretório `deep`.
-2. Execute o arquivo `main`
+2. Execute o arquivo `main`.
+3. Quando rodar pela primeira vez um vídeo novo, passar para False `read_from_stub` nas linhas 17 e 18 da `main`.
 
 ## Procedimento Geral
 
