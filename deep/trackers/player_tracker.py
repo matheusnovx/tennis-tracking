@@ -31,7 +31,7 @@ class PlayerTracker:
                     min_distance = distance
             distances.append((track_id, min_distance))
         
-        # sorrt the distances in ascending order
+        # sort the distances in ascending order
         distances.sort(key = lambda x: x[1])
         # Choose the first 2 tracks
         chosen_players = [distances[0][0], distances[1][0]]
