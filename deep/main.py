@@ -14,30 +14,27 @@ def initialize_trackers() -> Tuple[PlayerTracker, BallTracker, CourtLineDetector
 
 # Detect players and the ball in the video
 def detect_objects(video_frames: List, player_tracker: PlayerTracker, ball_tracker: BallTracker) -> Tuple[List, List]:
-    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/pickle/player_detections.pkl")
-    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="deep/pickle/ball_detections.pkl")
+    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=False, stub_path="deep/pickle/player_detections.pkl")
+    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=False, stub_path="deep/pickle/ball_detections.pkl")
     return player_detections, ball_detections
 
 # Process the video
 def process_video(input_video_path: str):
-    try:
-        video_frames = read_video(input_video_path)
-        player_tracker, ball_tracker, court_line_detector = initialize_trackers()
-        
-        court_keypoints = court_line_detector.predict(video_frames[0])
-        
-        player_detections, ball_detections = detect_objects(video_frames, player_tracker, ball_tracker)
-        player_detections = player_tracker.choose_and_filter_players(court_keypoints, player_detections)
-        
-        output_video_frames = player_tracker.draw_bboxes(video_frames, player_detections)
-        output_video_frames = ball_tracker.draw_bboxes(output_video_frames, ball_detections)
-        
-        save_video(output_video_frames, "output_videos/output_deep.avi")
-    except Exception as e:
-        logging.error(f"Failed to process video: {e}")
+    video_frames = read_video(input_video_path)
+    player_tracker, ball_tracker, court_line_detector = initialize_trackers()
+    
+    court_keypoints = court_line_detector.predict(video_frames[0])
+    
+    player_detections, ball_detections = detect_objects(video_frames, player_tracker, ball_tracker)
+    player_detections = player_tracker.choose_and_filter_players(court_keypoints, player_detections)
+    
+    output_video_frames = player_tracker.draw_bboxes(video_frames, player_detections)
+    output_video_frames = ball_tracker.draw_bboxes(output_video_frames, ball_detections)
+    
+    save_video(output_video_frames, "output_videos/output_30.avi")
 
 def main():
-    input_video_path = "input_videos/tennis_match2_cut.mp4"
+    input_video_path = "input_videos/tennis_match2_cut30.mp4"
     process_video(input_video_path)
 
 if __name__ == "__main__":

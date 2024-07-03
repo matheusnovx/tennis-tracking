@@ -1,4 +1,5 @@
 import cv2
+from .tennis_court_detection import is_tennis_court
 
 def read_video(video_path):
     cap = cv2.VideoCapture(video_path)
@@ -7,7 +8,8 @@ def read_video(video_path):
         ret, frame = cap.read()
         if not ret:
             break
-        frames.append(frame)
+        if is_tennis_court(frame):
+            frames.append(frame)
     cap.release()
     return frames
 
